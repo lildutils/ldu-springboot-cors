@@ -55,8 +55,8 @@ public class LDuCorsFilter extends OncePerRequestFilter
 		response.addHeader( "Access-Control-Expose-Headers", exposedHeaders );
 		response.addHeader( "Access-Control-Allow-Credentials", String.valueOf( allowedCredentials ) );
 		response.addHeader( "Access-Control-Max-Age", String.valueOf( expiration ) );
-		logger.debug( "CORS Success! " + request.getMethod() + " " + request.getRequestURL() );
-		logger.debug( "Origin: " + origin );
+		logger.info( "CORS Success! " + request.getMethod() + " " + request.getRequestURL() );
+		logger.info( "Origin: " + origin );
 
 		filterChain.doFilter( request, response );
 	}
