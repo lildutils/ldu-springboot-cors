@@ -26,13 +26,13 @@ ldu.cors.expiration-time=integerValue
 # application.yml
 
 ldu:
-	cors:
-		allowed-origins: "comma, separated, string, values"
-		allowed-methods: "comma, separated, string, values"
-		allowed-headers: "comma, separated, string, values"
-		exposed-headers: "comma, separated, string, values"
-		allowed-credentials: booleanValue
-		expiration-time: integerValue
+  cors:
+    allowed-origins: "comma, separated, string, values"
+    allowed-methods: "comma, separated, string, values"
+    allowed-headers: "comma, separated, string, values"
+    exposed-headers: "comma, separated, string, values"
+    allowed-credentials: booleanValue
+    expiration-time: integerValue
 ```
 
 ### Install

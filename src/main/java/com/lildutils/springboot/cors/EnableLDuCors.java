@@ -14,7 +14,7 @@ import com.lildutils.springboot.cors.config.LDuCorsConfigurer;
 @Target(ElementType.TYPE)
 @Documented
 @Import(LDuCorsConfigurer.class)
-public @interface EnableLDuCors
+public @interface EnableLDuCORS
 {
 
 }
