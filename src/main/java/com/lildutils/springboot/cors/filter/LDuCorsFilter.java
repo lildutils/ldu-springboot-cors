@@ -44,8 +44,7 @@ public class LDuCorsFilter extends OncePerRequestFilter
 		{
 			response.setStatus( HttpStatus.FORBIDDEN.value() );
 			response.setCharacterEncoding( StandardCharsets.UTF_8.name() );
-			logger.warn( "CORS Failed! " + request.getMethod() + " " + request.getRequestURL() );
-			logger.warn( "Origin: " + origin );
+			logger.warn( "CORS Failed! " + request.getMethod() + " " + request.getRequestURL() + " | Origin: " + origin );
 			return;
 		}
 
@@ -55,8 +54,7 @@ public class LDuCorsFilter extends OncePerRequestFilter
 		response.addHeader( "Access-Control-Expose-Headers", exposedHeaders );
 		response.addHeader( "Access-Control-Allow-Credentials", String.valueOf( allowedCredentials ) );
 		response.addHeader( "Access-Control-Max-Age", String.valueOf( expiration ) );
-		logger.info( "CORS Success! " + request.getMethod() + " " + request.getRequestURL() );
-		logger.info( "Origin: " + origin );
+		logger.info( "CORS Success! " + request.getMethod() + " " + request.getRequestURL() + " | Origin: " + origin );
 
 		filterChain.doFilter( request, response );
 	}
