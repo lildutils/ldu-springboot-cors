@@ -14,7 +14,6 @@ repositories {
 
 dependencies {
 	compile group: 'org.springframework', name: 'spring-context', version: '5.2.2.RELEASE'
-	compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.2.1.RELEASE'
 	compile group: 'org.springframework.security', name: 'spring-security-config', version: '5.2.1.RELEASE'
 	compile group: 'org.springframework.security', name: 'spring-security-web', version: '5.2.1.RELEASE'
 	compile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
