@@ -14,6 +14,7 @@
 ```properties
 # application.properties
 
+ldu.cors.origin.header-name=stringValue
 ldu.cors.allowed-origins=comma, separated, string, values
 ldu.cors.allowed-methods=comma, separated, string, values
 ldu.cors.allowed-headers=comma, separated, string, values
@@ -27,10 +28,12 @@ ldu.cors.expiration-time=integerValue
 
 ldu:
   cors:
-    allowed-origins: "comma, separated, string, values"
-    allowed-methods: "comma, separated, string, values"
-    allowed-headers: "comma, separated, string, values"
-    exposed-headers: "comma, separated, string, values"
+    origin:
+      header-name: stringValue
+    allowed-origins: comma, separated, string, values
+    allowed-methods: comma, separated, string, values
+    allowed-headers: comma, separated, string, values
+    exposed-headers: comma, separated, string, values
     allowed-credentials: booleanValue
     expiration-time: integerValue
 ```

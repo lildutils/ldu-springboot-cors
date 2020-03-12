@@ -1,11 +1,12 @@
-package com.lildutils.springboot.cors.config;
+package com.lildutils.springboot.cors.filter;
 
 import java.util.Set;
 
 import com.lildutils.springboot.cors.whitelist.LDuCorsWhitelistProcessor;
 
-public class LDuCorsConfig
+public class LDuCorsFilterConfig
 {
+	private String	originHeaderName;
 	private String	allowedMethods;
 	private String	allowedHeaders;
 	private boolean	allowedCredentials;
@@ -13,7 +14,7 @@ public class LDuCorsConfig
 	private String	exposedHeaders;
 	private String	whitelist;
 
-	public LDuCorsConfig()
+	public LDuCorsFilterConfig()
 	{
 		super();
 	}
@@ -81,6 +82,16 @@ public class LDuCorsConfig
 	public void setWhitelist( String whitelist )
 	{
 		this.whitelist = whitelist;
+	}
+
+	public String getOriginHeaderName()
+	{
+		return originHeaderName;
+	}
+
+	public void setOriginHeaderName( String originHeaderName )
+	{
+		this.originHeaderName = originHeaderName;
 	}
 
 }

@@ -12,10 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.lildutils.springboot.cors.config.LDuCorsConfig;
-
 public class LDuCorsFilter extends OncePerRequestFilter
 {
+	private final String		originHeaderName;
 	private final Set<String>	allowedOrigins;
 	private final String		allowedMethods;
 	private final String		allowedHeaders;
@@ -23,9 +22,10 @@ public class LDuCorsFilter extends OncePerRequestFilter
 	private final int			expiration;
 	private final String		exposedHeaders;
 
-	public LDuCorsFilter( LDuCorsConfig config )
+	public LDuCorsFilter( LDuCorsFilterConfig config )
 	{
 		super();
+		this.originHeaderName = config.getOriginHeaderName();
 		this.allowedMethods = config.getAllowedMethods();
 		this.allowedHeaders = config.getAllowedHeaders();
 		this.allowedCredentials = config.getAllowedCredentials();
@@ -38,13 +38,14 @@ public class LDuCorsFilter extends OncePerRequestFilter
 	protected void doFilterInternal( HttpServletRequest request, HttpServletResponse response, FilterChain filterChain )
 			throws IOException, ServletException
 	{
-		final String origin = request.getHeader( "Origin" );
+		final String origin = request.getHeader( this.originHeaderName );
 
 		if( !allowedOrigins.contains( origin ) )
 		{
 			response.setStatus( HttpStatus.FORBIDDEN.value() );
 			response.setCharacterEncoding( StandardCharsets.UTF_8.name() );
-			logger.warn( "CORS Failed! " + request.getMethod() + " " + request.getRequestURL() + " | Origin: " + origin );
+			logger.warn(
+					"CORS Failed! " + request.getMethod() + " " + request.getRequestURL() + " | Origin: " + origin );
 			return;
 		}
 
